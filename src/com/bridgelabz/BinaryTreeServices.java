@@ -8,6 +8,7 @@ package com.bridgelabz;
  * [4] Method inorder to display the BST inorder. In inorder we display first left then data and then the right child.
  * [5] Method preorder to display the BST. In preorder we display root and then left child and then the right child.
  * [6] Method postorder to display the BST. In postorder we display left child and then right and then the root node.
+ * [7] Method size to check the size of the BST
  * @author Tom
  *
  */
@@ -123,5 +124,22 @@ Node root;
             postorder(r.right);
             System.out.print(r.data +" ");
         }
-    }       
+    }   
+    
+    /**
+     * [7] Method size to check the size of the BST
+     * 1. If root is null then the BST is empty and will return 0
+     * 2. We add the right and the left child and the root
+     */
+    public void size() {
+		System.out.println("\n The size of the tree is: " + sizeAll(root));
+	}
+	
+	public int sizeAll(Node root) {
+		
+		if (root == null)
+			return 0;
+		
+		return sizeAll(root.left) + sizeAll(root.right) + 1;
+	}
 }
